@@ -11,7 +11,7 @@ async function buscarMusica(termino) {
     mensaje.textContent = "Buscando canciones...";
     resultados.replaceChildren();
 
-    try {
+   
         const url = `https://itunes.apple.com/search?term=${encodeURIComponent(termino)}&entity=song&country=CL&limit=20`;
 
         const respuesta = await fetch(url);
@@ -20,10 +20,7 @@ async function buscarMusica(termino) {
         canciones = datos.results;
        
         mostrarCanciones(canciones);
-    } catch (error) {
-        canciones = [];
-        mensaje.textContent = "No se pudieron cargar los resultados. Intenta nuevamente.";
-    }
+
 }
 
 // Muestra las canciones en pantalla
